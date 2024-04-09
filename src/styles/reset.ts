@@ -1,0 +1,81 @@
+import { css } from "@emotion/react";
+
+const reset = css`
+  /* box-sizing 규칙을 명시 */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 폰트 크기의 팽창을 방지 */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* 기본 여백을 제거 */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ul, ol 요소의 기본 목록 스타일을 제거 */
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
+
+  /* 핵심 body의 기본값을 설정 */
+  body {
+    min-width: 100vw;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  /* 제목에 대한 text-wrap을 balance로 설정 */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  /* 클래스가 없는 기본 a 태그 요소는 기본 스타일일로 지정 */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+  }
+
+  /* 이미지 관련 전처리 */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* input 및 button 항목들이 글꼴을 상속 */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* 고정된 모든 항목에 여분의 스크롤 여백이 지정 */
+  :target {
+    scroll-margin-block: 5ex;
+  }
+`;
+
+export default reset;
