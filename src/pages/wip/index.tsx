@@ -5,7 +5,7 @@ interface Props {
   color?: string;
 }
 
-export default function Wip({ name, color }: Props) {
+export default function WipPage({ name, color }: Props) {
   return (
     <Main style={{ backgroundColor: color ?? "#fff" }}>
       {name} on progress (modified)

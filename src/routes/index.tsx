@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Wip from "../pages/wip";
-import Home from "../pages/home";
+import WipPage from "../pages/wip";
+import HomePage from "../pages/home";
+import CanvasPage from "../pages/canvas";
 import RootLayout from "../layouts/root";
+import ExampleLayout from "../layouts/example";
 
 const router = createBrowserRouter([
   {
@@ -11,15 +13,21 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: "canvas-to-fabric.js",
-        element: <Wip name="canvasAPI로 간단히 구현해보기" color="#4b52b1" />,
+        element: <CanvasPage />,
       },
       {
         path: "example",
-        element: <Wip name="예시" color="#4b52b1" />,
+        element: <ExampleLayout />,
+        children: [
+          {
+            path: "intro-1",
+            element: <WipPage name="1" color="#4b52b1" />,
+          },
+        ],
       },
     ],
   },
