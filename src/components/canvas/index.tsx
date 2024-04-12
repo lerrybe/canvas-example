@@ -295,17 +295,26 @@ export default function Canvas() {
     };
   }, [shapes, selectedShapeIndex]);
 
-  useEffect(() => {
+  const animate = useCallback(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     drawShapes({ ctx, canvas });
-  }, [shapes, selectedShapeIndex, drawShapes]);
+    requestAnimationFrame(animate);
+  }, [drawShapes]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!ctx || !canvas) return;
+    ctx?.clearRect(0, 0, canvas.width, canvas.height);
+    requestAnimationFrame(animate);
+  }, [animate]);
 
   return (
     <canvas
       ref={canvasRef}
       width={600}
-      height={600}
+      height={400}
       onMouseUp={handleMouseUp}
       onMouseOut={handleMouseUp}
       onMouseDown={handleMouseDown}
