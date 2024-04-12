@@ -1,13 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home() {
-  const navigate = useNavigate();
-
   return (
     <>
-      <button onClick={() => navigate("/canvas-to-fabric.js")}>
-        CANVAS to FABRIC.JS
-      </button>
+      <Link to="/canvas-to-fabric.js">🔗 CANVAS to FABRIC.JS</Link>
     </>
   );
 }
