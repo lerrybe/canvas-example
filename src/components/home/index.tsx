@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <>
-      <Link to="/canvas-to-fabric.js">🔗 CANVAS to FABRIC.JS</Link>
-    </>
+    <main style={{ display: "flex", flexDirection: "column" }}>
+      <Link to="/canvas">🔗 CANVAS</Link>
+      <Link to="/multi-layer-canvas">🔗 MULTILAYER CANVAS</Link>
+    </main>
   );
 }
