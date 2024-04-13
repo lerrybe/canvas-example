@@ -103,6 +103,7 @@ export default function SingleLayerCanvas() {
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    setSelectedShapeIndex(-1);
   };
 
   return (
