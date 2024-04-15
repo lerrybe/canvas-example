@@ -1,10 +1,23 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import styles from "./home.module.css";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
-    <main style={{ display: "flex", flexDirection: "column" }}>
-      <Link to="/canvas">🔗 CANVAS</Link>
-      <Link to="/multi-layer-canvas">🔗 MULTILAYER CANVAS</Link>
+    <main className={styles.container}>
+      <div className={styles.gradient_red} />
+      <div className={styles.gradient_purple} />
+      <div className={styles.gradient_yellow} />
+
+      <button className={styles.button} onClick={() => navigate("/canvas")}>
+        🔗 Simple canvas
+      </button>
+      <button
+        className={styles.button}
+        onClick={() => navigate("/multi-layer-canvas")}>
+        🔗 MultiLayer canvas
+      </button>
     </main>
   );
 }

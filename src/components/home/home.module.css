@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 24px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.gradient_red {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  filter: blur(200px);
+  background: radial-gradient(#e66465, #ffffff);
+  z-index: -1;
+}
+
+.gradient_purple {
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  width: 180px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  filter: blur(140px);
+  background: radial-gradient(#a053ff, #ffffff);
+  z-index: -1;
+}
+
+.gradient_yellow {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  width: 200px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  filter: blur(130px);
+  background: radial-gradient(#ffd900, #ffffff);
+  z-index: -1;
+}
+
+.button {
+  width: auto;
+  height: auto;
+  padding: 14px 32px;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-family: "Pretendard-Regular";
+
+  --border-angle: 0turn;
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    #ffffff,
+    #ffffff 5%,
+    #ffffff 60%,
+    #ffffff 95%
+  );
+  border-radius: 12px;
+  border: solid 1.5px transparent;
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    #ffffff,
+    rgb(128, 0, 255, 0.3),
+    rgba(0, 115, 255, 0.3),
+    rgba(17, 255, 0, 0.3),
+    rgba(255, 183, 0, 0.3),
+    rgb(255, 51, 0, 0.3),
+    #ffffff
+  );
+  background: var(--main-bg) padding-box, var(--gradient-border) border-box,
+    var(--main-bg) border-box;
+  background-position: center center;
+  animation: bgSpin 1.8s linear infinite;
+}
+
+.button:hover {
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    #ffffff,
+    rgb(128, 0, 255, 0.5),
+    rgba(0, 115, 255, 0.5),
+    rgba(17, 255, 0, 0.5),
+    rgba(255, 183, 0, 0.5),
+    rgb(255, 51, 0, 0.5),
+    #ffffff
+  );
+  animation: bgSpin 1.2s linear infinite;
+}
+
+@keyframes bgSpin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
