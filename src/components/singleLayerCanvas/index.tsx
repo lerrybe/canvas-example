@@ -107,7 +107,7 @@ export default function SingleLayerCanvas() {
   };
 
   return (
-    <div style={{ height: 480, padding: "10px" }}>
+    <div style={{ width: 602, height: 480, padding: "10px" }}>
       <div style={{ fontSize: 20, fontWeight: 600 }}>Not Optimized (X)</div>
       <span style={{ fontSize: 18, fontWeight: 500, background: "#f443364a" }}>
         Canvas Render Count: {renderCount}
@@ -121,7 +121,11 @@ export default function SingleLayerCanvas() {
           onMouseOut={handleMouseUp}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
-          style={{ borderRadius: 5, border: "1px solid #d2d2d2" }}
+          style={{
+            borderRadius: 5,
+            backgroundColor: "#fff",
+            border: "1px solid #d2d2d2",
+          }}
         />
       </div>
     </div>

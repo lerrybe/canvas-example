@@ -225,7 +225,7 @@ export default function MultiLayerCanvas() {
   }, [shapes]);
 
   return (
-    <div style={{ height: 500, padding: "10px" }}>
+    <div style={{ height: 500, padding: "10px", width: 602 }}>
       <div style={{ fontSize: 20, fontWeight: 600 }}>Optimized (O)</div>
       <span style={{ fontSize: 18, fontWeight: 500, background: "#2196f347" }}>
         Lower-Canvas Render Count: {lowerCanvasRenderCount}
@@ -241,6 +241,7 @@ export default function MultiLayerCanvas() {
             left: 0,
             zIndex: 1,
             position: "absolute",
+            backgroundColor: "#fff",
           }}
         />
         <canvas

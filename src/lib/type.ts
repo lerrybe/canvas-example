@@ -18,7 +18,6 @@ export enum ResizeDirection {
 }
 
 export enum ShapeType {
-  STAR = "star",
   TEXT = "text",
   RECT = "rect",
   CIRCLE = "circle",

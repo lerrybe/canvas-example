@@ -16,7 +16,7 @@ export default function Home() {
       <button
         className={styles.button}
         onClick={() => navigate("/multi-layer-canvas")}>
-        🔗 MultiLayer canvas
+        🔗 MultiLayer canvas (Optimization)
       </button>
     </main>
   );

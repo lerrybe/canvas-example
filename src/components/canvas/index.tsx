@@ -1,4 +1,5 @@
 import { useRef, useMemo, useState, useEffect, useCallback } from "react";
+import styles from "./canvas.module.css";
 
 import {
   usePointInsideShape,
@@ -240,27 +241,6 @@ export default function Canvas() {
               ctx.fillStyle = shape.color;
               ctx.fill();
               break;
-            case ShapeType.STAR:
-              const NUM_POINTS = 5;
-              const outerRadius = Math.min(shape.width, shape.height) / 2;
-              const innerRadius = outerRadius / 2;
-              ctx.beginPath();
-              ctx.moveTo(
-                shape.width / 2 + outerRadius * Math.cos((-90 * Math.PI) / 180),
-                shape.height / 2 + outerRadius * Math.sin((-90 * Math.PI) / 180)
-              );
-              for (let i = 0; i < NUM_POINTS; i++) {
-                const angle = (i * 4 * Math.PI) / NUM_POINTS - Math.PI / 2;
-                const radius = i % 2 === 0 ? outerRadius : innerRadius;
-                ctx.lineTo(
-                  shape.width / 2 + radius * Math.cos(angle),
-                  shape.height / 2 + radius * Math.sin(angle)
-                );
-              }
-              ctx.closePath();
-              ctx.fillStyle = shape.color;
-              ctx.fill();
-              break;
             case ShapeType.TEXT:
               ctx.font = "24px Arial";
               ctx.fillStyle = shape.color;
@@ -311,27 +291,33 @@ export default function Canvas() {
   }, [animate]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={600}
-      height={400}
-      onMouseUp={handleMouseUp}
-      onMouseOut={handleMouseUp}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      style={{
-        margin: "auto",
-        borderRadius: 10,
-        border: "1px solid #e1e1e1",
-        cursor:
-          dragState.isDragging ||
-          resizeState.isResizing ||
-          rotateState.isRotating
-            ? "grabbing"
-            : selectedShapeIndex !== -1
-            ? "grab"
-            : "default",
-      }}
-    />
+    <main className={styles.container}>
+      <div className={styles.gradient_red} />
+      <div className={styles.gradient_purple} />
+      <div className={styles.gradient_yellow} />
+      <canvas
+        ref={canvasRef}
+        width={600}
+        height={400}
+        onMouseUp={handleMouseUp}
+        onMouseOut={handleMouseUp}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        style={{
+          margin: "auto",
+          borderRadius: 10,
+          backgroundColor: "#fff",
+          border: "1px solid #e1e1e1",
+          cursor:
+            dragState.isDragging ||
+            resizeState.isResizing ||
+            rotateState.isRotating
+              ? "grabbing"
+              : selectedShapeIndex !== -1
+              ? "grab"
+              : "default",
+        }}
+      />
+    </main>
   );
 }
