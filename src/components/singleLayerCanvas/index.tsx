@@ -13,11 +13,20 @@ export interface Shape {
 export const defaultShapes = [
   {
     type: "rect",
-    x: 100,
+    x: 160,
+    y: 200,
+    width: 100,
+    height: 100,
+    color: "#ffdde1",
+    angle: 0,
+  },
+  {
+    type: "rect",
+    x: 400,
     y: 100,
     width: 100,
     height: 100,
-    color: "#3498db",
+    color: "#ee9ca7",
     angle: 0,
   },
 ];

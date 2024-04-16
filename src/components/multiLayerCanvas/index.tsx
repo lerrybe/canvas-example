@@ -8,10 +8,19 @@ export const defaultShapes = [
     type: "rect",
     x: 100,
     y: 100,
-    angle: 0,
     width: 100,
     height: 100,
-    color: "#3498db",
+    color: "#A7BFE8",
+    angle: 0,
+  },
+  {
+    type: "rect",
+    x: 300,
+    y: 200,
+    width: 100,
+    height: 100,
+    color: "#6190E8",
+    angle: 0,
   },
 ];
 
